@@ -1,0 +1,53 @@
+
+
+//////////////////////////////////////////////////////////
+CREATE TABLE `special` (
+ `id` int(10) NOT NULL AUTO_INCREMENT,
+ `name` varchar(50) NOT NULL,
+ `img` varchar(100) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+
+CREATE TABLE `schedule` (
+ `id` int(10) NOT NULL AUTO_INCREMENT,
+ `doct_id` int(10) NOT NULL,
+ `day` varchar(10) NOT NULL,
+ `time_from` time(6) NOT NULL,
+ `time_to` time(6) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+
+CREATE TABLE `appointment` (
+ `id` int(10) NOT NULL AUTO_INCREMENT,
+ `doct_id` int(10) NOT NULL,
+ `pat_id` int(10) NOT NULL,
+ `date` datetime NOT NULL,
+ `time` time(6) NOT NULL,
+ `status` tinyint(1) NOT NULL COMMENT '1=request,2=confirm,3=done',
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+
+CREATE TABLE `doctor` (
+ `id` int(10) NOT NULL AUTO_INCREMENT,
+ `name` varchar(50) NOT NULL,
+ `name_pref` varchar(50) NOT NULL,
+ `specialties` varchar(100) NOT NULL,
+ `phone` varchar(11) NOT NULL,
+ `email` varchar(50) NOT NULL,
+ `password` varchar(100) NOT NULL,
+ `img` varchar(100) NOT NULL,
+ `create_at` datetime(6) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+
+CREATE TABLE `patient` (
+ `id` int(10) NOT NULL AUTO_INCREMENT,
+ `name` varchar(50) NOT NULL,
+ `email` varchar(50) NOT NULL,
+ `password` varchar(50) NOT NULL,
+ `phone` varchar(11) NOT NULL,
+ `dob` varchar(50) NOT NULL,
+ `gender` varchar(50) NOT NULL,
+ `address` varchar(50) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
